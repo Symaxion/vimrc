@@ -1,0 +1,9 @@
+.vim/.netrwhist
+.*
+*.swp
+!.vim
+!.vimrc
+!.gvimrc
+!.gitignore
+.DS_Store
+*.pyc
