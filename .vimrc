@@ -15,7 +15,7 @@ set ignorecase
 set smartcase
 set textwidth=80
 set formatoptions+=r
-set cinoptions=:0g0
+set cinoptions=:0g0N-s
 set backspace=2
 set mouse=a
 set hidden
@@ -101,21 +101,12 @@ colo force
 
 " Plugins
 
-" No plugins for terminal config {{{1
-if !has("gui_running")
-  finish
-endif
-
-" Load pathogen {{{1
-call pathogen#infect()
-
-" }}}
-
 " BufExplorer options {{{1
 nmap <silent> <D-e> :BufExplorer<CR>
 imap <silent> <D-e> <Esc>:BufExplorer<CR>
 
 " MiniBufExplorer options {{{1
+let g:miniBufExplorerAutoStart=0
 let g:miniBufExplBuffersNeeded=0
 let g:miniBufExplUseSingleClick=1
 let g:miniBufExplorerDebugLevel=10
@@ -146,14 +137,23 @@ let g:NERDTreeIgnore=[
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_colorscheme = 'light'
 
+" Local vimrc options {{{1
+let g:local_vimrc = [ '.vimrc_local.vim' ]
+
 " Snipmate options {{{1
 let g:snips_author = "Frank Erens"
+
+" Templates options {{{1
+let g:templates = {}
+let g:templates.name = "Frank Erens"
+let g:templates.email = "frank@synthi.net"
 
 " LaTeX-Box options {{{1
 let g:LatexBox_viewer = 'open'
 let g:LatexBox_Folding = 0
 let g:LatexBox_fold_envs = 0
 let g:LatexBox_fold_preamble = 0
+let g:LatexBox_quickfix = 4
 
 " YouCompleteMe options {{{1
 let g:ycm_global_ycm_extra_conf=$HOME . '/.vim/python/ycm_global.py'
@@ -179,15 +179,35 @@ let g:syntastic_warning_symbol = '⚠'
 " Turn off checkers for LaTeX
 let g:syntastic_tex_checkers = []
 
+" Dash.vim options {{{1
+nnoremap <Leader>] <Plug>DashSearch
+
 " delimitMate options {{{1
 let delimitMate_expand_cr = 1
 au FileType vim let b:delimitMate_quotes="'" 
 
+" CloseTag options {{{1
+let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.plist"
 " Vim indent guides options {{{1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_enable_on_vim_startup = 1
+
+" No plugins for terminal config except MBE and Powerline {{{1
+if !has("gui_running")
+  call pathogen#interpose('bundle/minibufexpl.vim')
+  call pathogen#interpose('bundle/vim-powerline')
+  call pathogen#interpose('bundle/powerline-theme-light')
+  finish
+endif
+
+let g:vimrc_plugins_loaded=1
+
+" Load pathogen {{{1
+call pathogen#infect()
+
+" }}}
 
 " vim: fdm=marker
 

@@ -27,7 +27,7 @@ augroup plist
   autocmd BufReadPre,FileReadPre *.plist set binary
 
   " Define a little function to convert binary files if necessary...
-  fun MyBinaryPlistReadPost()
+  fun! MyBinaryPlistReadPost()
           " Check if the first line just read in indicates a binary plist
           if getline("'[") =~ "^bplist"
                   " Filter lines read into buffer (convert to XML with plutil)
@@ -49,7 +49,7 @@ augroup plist
   autocmd FileReadPost *.plist call MyBinaryPlistReadPost() | let b:saveAsBinaryPlist = 0
 
   " Define and use functions for conversion back to binary format
-  fun MyBinaryPlistWritePre()
+  fun! MyBinaryPlistWritePre()
           if exists("b:saveAsBinaryPlist") && b:saveAsBinaryPlist
                   " Must set binary mode before conversion (for EOL settings)
                   set binary
@@ -62,7 +62,7 @@ augroup plist
           endif
   endfun
   autocmd BufWritePre,FileWritePre *.plist call MyBinaryPlistWritePre()
-  fun MyBinaryPlistWritePost()
+  fun! MyBinaryPlistWritePost()
           " If file was to be written in binary format and there was no error
           " doing the conversion, ...
           if exists("b:saveAsBinaryPlist") && b:saveAsBinaryPlist && !v:shell_error
