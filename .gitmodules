@@ -36,7 +36,7 @@
 	url = https://github.com/garbas/vim-snipmate.git
 [submodule ".vim/bundle/vim-snippets"]
 	path = .vim/bundle/vim-snippets
-	url = https://github.com/SeySayux/vim-snippets.git
+	url = git@github.com:Symaxion/vim-snippets.git
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -84,7 +84,7 @@
 	url = https://github.com/LucHermitte/local_vimrc
 [submodule ".vim/bundle/powerline-theme-light"]
 	path = .vim/bundle/powerline-theme-light
-	url = https://github.com/SeySayux/powerline-theme-light
+	url = git@github.com:Symaxion/powerline-theme-light
 [submodule ".vim/bundle/lh-vim-lib"]
 	path = .vim/bundle/lh-vim-lib
 	url = https://github.com/LucHermitte/lh-vim-lib
@@ -93,7 +93,7 @@
 	url = https://github.com/xevz/vim-squirrel
 [submodule ".vim/bundle/nerdtree-extras"]
 	path = .vim/bundle/nerdtree-extras
-	url = https://github.com/SeySayux/nerdtree-extras
+	url = git@github.com:Symaxion/nerdtree-extras
 [submodule ".vim/bundle/vim-devicons"]
 	path = .vim/bundle/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons
@@ -109,3 +109,9 @@
 [submodule ".vim/bundle/xmledit"]
 	path = .vim/bundle/xmledit
 	url = https://github.com/sukima/xmledit/
+[submodule ".vim/bundle/vim-argumentative"]
+	path = .vim/bundle/vim-argumentative
+	url = https://github.com/PeterRincker/vim-argumentative
+[submodule ".vim/bundle/typescript-vim"]
+	path = .vim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
