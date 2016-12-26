@@ -186,8 +186,8 @@ nnoremap <Leader>] <Plug>DashSearch
 let delimitMate_expand_cr = 1
 au FileType vim let b:delimitMate_quotes="'" 
 
-" CloseTag options {{{1
-let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.plist"
+" XMLEdit options {{{1
+let g:xmledit_enable_html = 1
 " Vim indent guides options {{{1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
