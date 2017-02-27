@@ -1,6 +1,6 @@
 " File: templates.vim
 " Author: Frank Erens <frank@synthi.net>
-" Last Modified: 2015-09-12
+" Last Modified: 2016-02-26
 
 " Options and default values
 if !exists('g:templates')
@@ -38,6 +38,10 @@ function s:replace(from, to)
 endfunction
 
 function s:applyTemplate()
+  if expand('%') == "" 
+    return
+  endif
+
   " Find correct template for given file type in this or any parent directory
   let l:template = s:templateForPath(expand('%:p'), expand('%:e'))
 
