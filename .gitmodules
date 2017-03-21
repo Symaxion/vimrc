@@ -94,9 +94,6 @@
 [submodule ".vim/bundle/nerdtree-extras"]
 	path = .vim/bundle/nerdtree-extras
 	url = git@github.com:Symaxion/nerdtree-extras
-[submodule ".vim/bundle/vim-devicons"]
-	path = .vim/bundle/vim-devicons
-	url = https://github.com/ryanoasis/vim-devicons
 [submodule ".vim/vim-better-whitespace"]
 	path = .vim/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace
