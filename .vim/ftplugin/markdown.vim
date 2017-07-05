@@ -10,7 +10,7 @@ endif
 function! s:OpenMarked()
   execute "w"
   execute ":silent !open -a Marked '%:p'"
-  set ut=250
+  setl ut=250
   setl sts=4
   au CursorHold,CursorHoldI *.md update
   au BufDelete,VimLeave *.md :call s:CloseMarked() 

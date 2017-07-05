@@ -1,1 +1,1 @@
-set commentstring=//%s
+setl commentstring=//%s

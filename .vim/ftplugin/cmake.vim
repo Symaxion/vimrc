@@ -1,4 +1,4 @@
-set commentstring=#%s
+setl commentstring=#%s
 
 hi link cmakeCommand Statement
 hi link cmakeArguments Identifier

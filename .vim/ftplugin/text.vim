@@ -1,2 +1,2 @@
-set formatoptions+=t "a
-set formatoptions-=l
+setl formatoptions+=t "a
+setl formatoptions-=l

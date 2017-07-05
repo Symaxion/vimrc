@@ -1,1 +1,1 @@
-set tw=72
+setl tw=72
