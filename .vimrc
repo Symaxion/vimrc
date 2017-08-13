@@ -153,6 +153,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
 " Ack options {{{1
 cnoreabbrev Ack Ack!
+let g:ack_default_options .= " --smart-case"
 
 " Snipmate options {{{1
 let g:snips_author = "Frank Erens"
