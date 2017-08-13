@@ -140,6 +140,20 @@ let g:Powerline_colorscheme = 'light'
 " Local vimrc options {{{1
 let g:local_vimrc = [ '.vimrc_local.vim' ]
 
+" Unite options {{{1
+nnoremap <silent> ;u
+        \ :<C-u>exe winnr('$') . "wincmd w"<CR>
+        \ :<C-u>UniteWithProjectDir -buffer-name=files -no-split
+        \ -start-insert
+        \ jump_point file_point buffer_tab
+        \ buffer file_rec:! file/new<CR>
+
+" Use fuzzy matcher
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+" Ack options {{{1
+cnoreabbrev Ack Ack!
+
 " Snipmate options {{{1
 let g:snips_author = "Frank Erens"
 

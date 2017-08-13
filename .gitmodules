@@ -115,3 +115,9 @@
 [submodule ".vim/bundle/vim-cmake-syntax"]
 	path = .vim/bundle/vim-cmake-syntax
 	url = https://github.com/pboettch/vim-cmake-syntax
+[submodule ".vim/bundle/unite.vim"]
+	path = .vim/bundle/unite.vim
+	url = https://github.com/Shougo/unite.vim
+[submodule ".vim/bundle/ack.vim"]
+	path = .vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim
