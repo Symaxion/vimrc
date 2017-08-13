@@ -3,11 +3,11 @@ if !exists('g:vimrc_plugins_loaded')
   source $MYVIMRC
   runtime! plugin/**/autoload/*.vim
   runtime! plugin/**/*.vim
-  autocmd GUIEnter * exe 'MBEOpen'
+  " autocmd GUIEnter * exe 'MBEOpen'
 endif
 
 " Open MBE
-autocmd VimEnter * exe 'MBEOpen'
+" autocmd VimEnter * exe 'MBEOpen'
 
 " Color Scheme {{{1
 set bg=light

@@ -2,6 +2,8 @@
 
 " Basic options
 
+let g:pathogen_disabled = []
+
 " Vim settings {{{1
 
 set smartindent
@@ -111,6 +113,10 @@ let g:miniBufExplBuffersNeeded=0
 let g:miniBufExplUseSingleClick=1
 let g:miniBufExplorerDebugLevel=10
 
+" NOTE: Temporarily disable minibufexpl
+" Delete this if removed, re-enable if kept
+call add(g:pathogen_disabled, 'minibufexpl.vim')
+
 " NERDTree options {{{1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let NERDTreeShowBookmarks=1
@@ -139,21 +145,6 @@ let g:Powerline_colorscheme = 'light'
 
 " Local vimrc options {{{1
 let g:local_vimrc = [ '.vimrc_local.vim' ]
-
-" Unite options {{{1
-nnoremap <silent> ;u
-        \ :<C-u>exe winnr('$') . "wincmd w"<CR>
-        \ :<C-u>UniteWithProjectDir -buffer-name=files -no-split
-        \ -start-insert
-        \ jump_point file_point buffer_tab
-        \ buffer file_rec:! file/new<CR>
-
-" Use fuzzy matcher
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-
-" Ack options {{{1
-cnoreabbrev Ack Ack!
-let g:ack_default_options .= " --smart-case"
 
 " Snipmate options {{{1
 let g:snips_author = "Frank Erens"
@@ -221,6 +212,21 @@ let g:vimrc_plugins_loaded=1
 
 " Load pathogen {{{1
 call pathogen#infect()
+
+" Unite options {{{1
+nnoremap <silent> ;u
+        \ :<C-u>exe winnr('$') . "wincmd w"<CR>
+        \ :<C-u>UniteWithProjectDir -buffer-name=files -no-split
+        \ -start-insert
+        \ jump_point file_point buffer_tab
+        \ buffer file_rec:! file/new<CR>
+
+" Use fuzzy matcher
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+" Ack options {{{1
+cnoreabbrev Ack Ack!
+let g:ack_default_options = " -s -H --nocolor --nogroup --column --smart-case"
 
 " }}}
 
