@@ -223,6 +223,8 @@ nnoremap <silent> ;u
 
 " Use fuzzy matcher
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_selecta'])
+
 
 " Ack options {{{1
 cnoreabbrev Ack Ack!
