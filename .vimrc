@@ -2,8 +2,6 @@
 
 " Basic options
 
-let g:pathogen_disabled = []
-
 " Vim settings {{{1
 
 set smartindent
@@ -103,9 +101,15 @@ colo force
 
 " Plugins
 
+let g:pathogen_disabled = []
+
 " BufExplorer options {{{1
-nmap <silent> <D-e> :BufExplorer<CR>
-imap <silent> <D-e> <Esc>:BufExplorer<CR>
+nmap <silent> <D-e>
+        \ :<C-u>exe winnr('$') . "wincmd w"<CR>
+        \ :<C-u>BufExplorer<CR>
+imap <silent> <D-e> 
+        \ <Esc>:<C-u>exe winnr('$') . "wincmd w"<CR>
+        \ :<C-u>BufExplorer<CR>
 
 " MiniBufExplorer options {{{1
 let g:miniBufExplorerAutoStart=0
@@ -139,6 +143,10 @@ let g:NERDTreeIgnore=[
   \ '\.run.xml$',
   \ '-blx\.bib$']
 
+nnoremap <silent>;r
+        \ :<C-u>NERDTreeFind<CR>
+
+
 " Powerline Options {{{1
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_colorscheme = 'light'
@@ -169,6 +177,7 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_open_loclist_on_ycm_diags = 1
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_filetype_blacklist = {}
+let g:ycm_server_python_interpreter = "/usr/local/bin/python3"
 
 nnoremap <silent> ;e :YcmForceCompileAndDiagnostics<CR>
 
@@ -192,6 +201,14 @@ nnoremap <Leader>] <Plug>DashSearch
 let delimitMate_expand_cr = 1
 au FileType vim let b:delimitMate_quotes="'" 
 
+" Sideways.vim options {{{1
+nnoremap <silent> ,< :SidewaysLeft<CR>
+nnoremap <silent> ,> :SidewaysRight<CR>
+omap aa <Plug>SidewaysArgumentTextobjA
+xmap aa <Plug>SidewaysArgumentTextobjA
+omap ia <Plug>SidewaysArgumentTextobjI
+xmap ia <Plug>SidewaysArgumentTextobjI
+
 " XMLEdit options {{{1
 let g:xmledit_enable_html = 1
 " Vim indent guides options {{{1
@@ -210,25 +227,50 @@ endif
 
 let g:vimrc_plugins_loaded=1
 
+" Force Python 3
+let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.6"
+call has('python3')
+
 " Load pathogen {{{1
 call pathogen#infect()
 
-" Unite options {{{1
-nnoremap <silent> ;u
+" Denite options {{{1
+nnoremap <silent> ;f
         \ :<C-u>exe winnr('$') . "wincmd w"<CR>
-        \ :<C-u>UniteWithProjectDir -buffer-name=files -no-split
-        \ -start-insert
-        \ jump_point file_point buffer_tab
-        \ buffer file_rec:! file/new<CR>
+        \ :<C-u>DeniteProjectDir -buffer-name=files
+        \ -sorters=sorter_sublime
+        \ file_point buffer file_rec<CR>
 
-" Use fuzzy matcher
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_selecta'])
+nnoremap <silent> ;g
+        \ :<C-u>exe winnr('$') . "wincmd w"<CR>
+        \ :<C-u>DeniteProjectDir
+        \ -mode=normal -default-action=quickfix
+        \ grep<CR>
 
+" Map PgUp/PgDn for navigating Denite results
+call denite#custom#map('insert', '<Up>', '<C-T>')
+call denite#custom#map('insert', '<Down>', '<C-G>')
 
-" Ack options {{{1
-cnoreabbrev Ack Ack!
-let g:ack_default_options = " -s -H --nocolor --nogroup --column --smart-case"
+call denite#custom#map('normal', '<PageUp>', 'k')
+call denite#custom#map('normal', '<PageDown>', 'j')
+call denite#custom#map('normal', '<Up>', 'k')
+call denite#custom#map('normal', '<Down>', 'j')
+
+" Use ag for filename searching
+call denite#custom#var('file_rec', 'command',
+	  \ ['ag', '--nocolor', '--nogroup', '-g', ''])
+
+" Use ag for file contents searching
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts',
+    \ ['-aS', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+" Use Sublime sorter
+call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
 
 " }}}
 
