@@ -147,9 +147,28 @@ nnoremap <silent>;r
         \ :<C-u>NERDTreeFind<CR>
 
 
-" Powerline Options {{{1
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_colorscheme = 'light'
+" Airline Options {{{1
+let g:airline_theme = 'powerlineish_light'
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+let g:airline_detect_spell=0
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
+
+set showtabline=2
 
 " Local vimrc options {{{1
 let g:local_vimrc = [ '.vimrc_local.vim' ]
@@ -217,13 +236,6 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_enable_on_vim_startup = 1
 
-" No plugins for terminal config except MBE and Powerline {{{1
-if !has("gui_running")
-  call pathogen#interpose('bundle/minibufexpl.vim')
-  call pathogen#interpose('bundle/vim-powerline')
-  call pathogen#interpose('bundle/powerline-theme-light')
-  finish
-endif
 
 let g:vimrc_plugins_loaded=1
 
