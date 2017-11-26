@@ -163,12 +163,45 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_detect_spell=0
 
+let g:airline#extensions#tabline#left_sep = '⮀'
+let g:airline#extensions#tabline#left_alt_sep = '⮁'
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_tabs = 0
 let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
+let g:airline#extensions#tabline#show_tab_type = 0
 
-set showtabline=2
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_idx_format = {
+    \ '0': '[0] ',
+    \ '1': '[1] ',
+    \ '2': '[2] ',
+    \ '3': '[3] ',
+    \ '4': '[4] ',
+    \ '5': '[5] ',
+    \ '6': '[6] ',
+    \ '7': '[7] ',
+    \ '8': '[8] ',
+    \ '9': '[9] '
+    \}
+
+let g:airline#extensions#default#layout = [
+      \ [ 'a', 'b', 'c', 'd' ],
+      \ [ 'x', 'y', 'z', 'warning', 'error' ]
+      \ ]
+
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>, <Plug>AirlineSelectPrevTab
+nmap <leader>. <Plug>AirlineSelectNextTab
 
 " Local vimrc options {{{1
 let g:local_vimrc = [ '.vimrc_local.vim' ]
@@ -236,15 +269,17 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_enable_on_vim_startup = 1
 
-
-let g:vimrc_plugins_loaded=1
-
-" Force Python 3
+" Force Python 3 {{{ 1
 let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.6"
 call has('python3')
 
+" }}}
+
 " Load pathogen {{{1
 call pathogen#infect()
+
+let g:vimrc_plugins_loaded=1
+" }}}
 
 " Denite options {{{1
 nnoremap <silent> ;f
@@ -283,6 +318,32 @@ call denite#custom#var('grep', 'final_opts', [])
 
 " Use Sublime sorter
 call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
+
+" Airline sections {{{1
+function! s:ft()
+  if &ft == ''
+    return 'no ft'
+  else
+    return &ft
+  endif
+endfunction()
+
+let g:airline_section_d = airline#section#create([
+    \ ' ',
+\ ])
+let g:airline_section_x = airline#section#create_right([
+    \ '%{&ff}',
+    \ '%{&enc}',
+    \ '%{&ft == "" ? "no ft" : &ft}'
+\ ])
+let g:airline_section_y = airline#section#create([
+    \ '%3p%%',
+\ ])
+let g:airline_section_z = airline#section#create([
+    \ 'windowswap', 
+    \ 'linenr', 
+    \':%v'
+\ ])
 
 " }}}
 
