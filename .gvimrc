@@ -12,7 +12,7 @@ colo force
 " Basic GUI settings {{{1
 set number
 set cursorline
-" set showtabline=0
+set showtabline=2
 set laststatus=2
 set spell spelllang=en_us
 set guioptions-=L
