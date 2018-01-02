@@ -286,7 +286,7 @@ nnoremap <silent> ;f
         \ :<C-u>exe winnr('$') . "wincmd w"<CR>
         \ :<C-u>DeniteProjectDir -buffer-name=files
         \ -sorters=sorter_sublime
-        \ file_point buffer file_rec<CR>
+        \ file_rec<CR>
 
 nnoremap <silent> ;g
         \ :<C-u>exe winnr('$') . "wincmd w"<CR>
