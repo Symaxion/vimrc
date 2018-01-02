@@ -75,7 +75,7 @@ nnoremap <Leader>i <C-I>
 
 " Tweaks {{{1
 
-" Automatically change to directory of file {{{1
+" Automatically change to directory of file {{{2
 autocmd BufEnter * silent! lcd %:p:h
 
 " Show NFOs in correct codepage {{{2
@@ -310,7 +310,7 @@ call denite#custom#var('file_rec', 'command',
 " Use ag for file contents searching
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
-    \ ['-aS', '--vimgrep'])
+    \ ['-S', '--vimgrep'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
