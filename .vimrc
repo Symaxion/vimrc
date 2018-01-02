@@ -71,6 +71,10 @@ nnoremap <S-Tab> <C-w>W
 nnoremap <Leader>o <C-O>
 nnoremap <Leader>i <C-I>
 
+" Disable v_u/v_U keybinds
+vnoremap u <Nop>
+vnoremap U <Nop>
+
 " Commands {{{1
 
 " Tweaks {{{1
@@ -92,6 +96,7 @@ endfun
 autocmd FileType c,cpp,java,php,ruby,python,glsl,cmake 
   \ autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 " }}}
+
 
 " Color scheme {{{1
 let g:force_greyComments=1
