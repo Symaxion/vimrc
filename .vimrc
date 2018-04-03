@@ -71,11 +71,15 @@ nnoremap <S-Tab> <C-w>W
 nnoremap <Leader>o <C-O>
 nnoremap <Leader>i <C-I>
 
+" Disable v_u/v_U keybinds
+vnoremap u <Nop>
+vnoremap U <Nop>
+
 " Commands {{{1
 
 " Tweaks {{{1
 
-" Automatically change to directory of file {{{1
+" Automatically change to directory of file {{{2
 autocmd BufEnter * silent! lcd %:p:h
 
 " Show NFOs in correct codepage {{{2
@@ -92,6 +96,7 @@ endfun
 autocmd FileType c,cpp,java,php,ruby,python,glsl,cmake 
   \ autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 " }}}
+
 
 " Color scheme {{{1
 let g:force_greyComments=1
@@ -286,7 +291,7 @@ nnoremap <silent> ;f
         \ :<C-u>exe winnr('$') . "wincmd w"<CR>
         \ :<C-u>DeniteProjectDir -buffer-name=files
         \ -sorters=sorter_sublime
-        \ file_point buffer file_rec<CR>
+        \ file_rec<CR>
 
 nnoremap <silent> ;g
         \ :<C-u>exe winnr('$') . "wincmd w"<CR>
@@ -310,7 +315,7 @@ call denite#custom#var('file_rec', 'command',
 " Use ag for file contents searching
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
-    \ ['-aS', '--vimgrep'])
+    \ ['-S', '--vimgrep'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
