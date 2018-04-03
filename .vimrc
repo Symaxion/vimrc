@@ -274,7 +274,11 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_enable_on_vim_startup = 1
 
-" Force Python 3 {{{ 1
+" AnsiEsc options {{{1
+let g:no_drchip_menu = 1
+let g:no_ansiesc_menu = 1
+
+" Force Python 3 {{{1
 let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.6"
 call has('python3')
 
