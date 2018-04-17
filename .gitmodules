@@ -124,3 +124,6 @@
 [submodule ".vim/bundle/vim-plugin-AnsiEsc"]
 	path = .vim/bundle/vim-plugin-AnsiEsc
 	url = https://github.com/powerman/vim-plugin-AnsiEsc
+[submodule ".vim/bundle/svg-properties-syntax.vim"]
+	path = .vim/bundle/svg-properties-syntax.vim
+	url = https://github.com/othree/svg-properties-syntax.vim
