@@ -127,3 +127,6 @@
 [submodule ".vim/bundle/svg-properties-syntax.vim"]
 	path = .vim/bundle/svg-properties-syntax.vim
 	url = https://github.com/othree/svg-properties-syntax.vim
+[submodule ".vim/bundle/Nvim-R"]
+	path = .vim/bundle/Nvim-R
+	url = https://github.com/jalvesaq/Nvim-R

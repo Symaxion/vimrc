@@ -226,6 +226,12 @@ let g:LatexBox_fold_envs = 0
 let g:LatexBox_fold_preamble = 0
 let g:LatexBox_quickfix = 4
 
+" Nvim-R options {{{1
+let R_in_buffer = 0
+let R_applescript = 1
+let R_assign = 0
+let R_rnowebchunk = 0
+
 " YouCompleteMe options {{{1
 let g:ycm_global_ycm_extra_conf=$HOME . '/.vim/python/ycm_global.py'
 let g:ycm_extra_conf_vim_data = ['g:ycm_global_ycm_extra_conf']
