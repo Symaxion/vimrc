@@ -46,6 +46,9 @@ let g:load_doxygen_syntax=1
 let g:vim_markdown_math=1
 let g:vim_markdown_folding_disabled=1
 
+set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.7/
+set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib
+
 " }}}
 
 " Keybinds {{{1
@@ -146,7 +149,8 @@ let g:NERDTreeIgnore=[
   \ '\.bcf$',
   \ '\.latexmain$',
   \ '\.run.xml$',
-  \ '-blx\.bib$']
+  \ '-blx\.bib$', 
+  \ '__pycache__' ]
 
 nnoremap <silent>;r
         \ :<C-u>NERDTreeFind<CR>
@@ -285,7 +289,7 @@ let g:no_drchip_menu = 1
 let g:no_ansiesc_menu = 1
 
 " Force Python 3 {{{1
-let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.6"
+let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.7"
 call has('python3')
 
 " }}}
