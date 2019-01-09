@@ -130,3 +130,6 @@
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
+[submodule ".vim/bundle/vim-restructuredtext"]
+	path = .vim/bundle/vim-restructuredtext
+	url = https://github.com/marshallward/vim-restructuredtext
